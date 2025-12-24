@@ -3,3 +3,7 @@ INSYTE is a v1-B2B SaaS platform that helps businesses understand what customers
 Upload a CSV of reviews, INSYTE does the rest.
 It analyses the reviews, extracts key business factors, generates summaries, identifes risk and gives dashboards on which businesses can rely on.
 
+# KEY FEATURES
+AI powered sentiment detection
+
+
