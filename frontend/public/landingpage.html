@@ -101,6 +101,26 @@
         .reveal-delay-300 {
             transition-delay: 0.3s;
         }
+
+        .heart-animation {
+            position: fixed;
+            pointer-events: none;
+            /* Ensures the hearts don't block clicks */
+            animation: floatUp 1s ease-out forwards;
+            font-size: 1.2rem;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-50px) scale(1.2) translateX(var(--tx));
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
@@ -379,8 +399,12 @@
     <!-- CTA & Footer Section -->
     <section class="pt-24 relative overflow-hidden bg-brand-700">
         <div class="absolute inset-0 opacity-20 pointer-events-none">
-            <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full mix-blend-overlay filter blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-overlay filter blur-3xl transform translate-x-1/3 translate-y-1/3"></div>
+            <div
+                class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full mix-blend-overlay filter blur-3xl transform -translate-x-1/2 -translate-y-1/2">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-overlay filter blur-3xl transform translate-x-1/3 translate-y-1/3">
+            </div>
         </div>
 
         <!-- CTA Content -->
@@ -393,7 +417,8 @@
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="app.html">
-                    <button class="bg-white text-brand-700 hover:bg-blue-50 px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-xl hover:-translate-y-1 select-none">
+                    <button
+                        class="bg-white text-brand-700 hover:bg-blue-50 px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-xl hover:-translate-y-1 select-none">
                         Analyze Reviews
                     </button>
                 </a>
@@ -402,18 +427,21 @@
         </div>
 
         <!-- Footer -->
-        <footer class="bg-black text-slate-400 py-12 rounded-t-[5rem] relative z-10 shadow-[0_-20px_60px_rgba(0,0,0,0.5)] border-t border-brand-400/50 reveal">
+        <footer
+            class="bg-black text-slate-400 py-12 rounded-t-[5rem] relative z-10 shadow-[0_-20px_60px_rgba(0,0,0,0.5)] border-t border-brand-400/50 reveal">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 reveal">
                 <div class="col-span-1 md:col-span-1">
                     <span class="text-2xl font-bold text-white">INSYTE</span>
-                    <p class="text-slate-500 mt-4 text-sm leading-relaxed">Turning customer reviews into clear, trustworthy business insights.</p>
+                    <p class="text-slate-500 mt-4 text-sm leading-relaxed">Turning customer reviews into clear,
+                        trustworthy business insights.</p>
                 </div>
                 <div>
                     <h4 class="text-white font-bold mb-4">Product</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#features" class="hover:text-white transition">Features</a></li>
                         <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
-                        <li><a onclick="openModal()" class="hover:text-white transition select-none cursor-pointer">How It Works</a></li>
+                        <li><a onclick="openModal()" class="hover:text-white transition select-none cursor-pointer">How
+                                It Works</a></li>
                     </ul>
                 </div>
                 <div>
@@ -435,6 +463,13 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-600 text-sm">
                 &copy; 2025 INSYTE Inc. All rights reserved.
             </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm relative">
+                <span id="madewith"
+                    class="text-slate-600 hover:text-brand-100 transition-colors duration-300 cursor-pointer select-none relative z-10"
+                    onclick="popHearts(event)">
+                    Made with ❤️ and obsession...
+                </span>
+            </div>
         </footer>
     </section>
 
@@ -448,7 +483,8 @@
                 class="absolute top-4 right-4 z-10 text-white/50 hover:text-white bg-black/50 hover:bg-black/80 rounded-full p-2 transition-all w-10 h-10 flex items-center justify-center">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            <video id="demo-video" class="w-full h-full object-cover" controls preload="none" poster="/assets/images/poster.png">
+            <video id="demo-video" class="w-full h-full object-cover" controls preload="none"
+                poster="/assets/images/poster.png">
                 <source src="/assets/videos/demo1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -456,11 +492,11 @@
     </div>
 
     <script src="/js/demo.js"></script>
-
+    <script src="/js/hearts.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const observerOptions = {
-                root: null, 
+                root: null,
                 rootMargin: '0px',
                 threshold: 0.1
             };
@@ -475,14 +511,6 @@
             const hiddenElements = document.querySelectorAll('.reveal');
             hiddenElements.forEach((el) => observer.observe(el));
         });
-
-
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
     </script>
 </body>
 
