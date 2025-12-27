@@ -60,7 +60,7 @@ INSYTE
 ├── frontend/
 |   ├── assets
 |   ├── public/    
-│        ├── landingpage.html          # Landing page UI
+│        ├── index.html                # Landing page UI
 |        ├── app.html                  # Main UI (with Tailwind Styling)
 │        ├── style.css                 # Root Styles
 │        ├── script.js                 # Frontend logic + API calls 
