@@ -26,11 +26,11 @@ from backend.core.config import (
 
 app = FastAPI(title="Sentiment Intelligence API")
 
-frontend_dir = Path(__file__).resolve().parents[1] / "frontend" / "public"
+# frontend_dir = Path(__file__).resolve().parents[1] / "frontend" / "public"
 
-@app.get("/")
-def root():
-    return FileResponse(frontend_dir / "landingpage.html")
+# @app.get("/")
+# def root():
+#     return FileResponse(frontend_dir / "landingpage.html")
 
 
 app.add_middleware(
@@ -128,8 +128,8 @@ async def analyze_batch(request: BatchAnalyzeRequest):
         insights=insights
     )
 
-app.mount(
-    "/",
-    StaticFiles(directory=str(frontend_dir)),
-    name="static"
-)
+# app.mount(
+#     "/",
+#     StaticFiles(directory=str(frontend_dir)),
+#     name="static"
+# )
