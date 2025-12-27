@@ -1,5 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from pathlib import Path
 import time
 
 from backend.models.sentiment_schema import SentimentResponse
@@ -23,6 +26,13 @@ from backend.core.config import (
 
 app = FastAPI(title="Sentiment Intelligence API")
 
+frontend_dir = Path(__file__).resolve().parents[1] / "frontend" / "public"
+
+@app.get("/")
+def root():
+    return FileResponse(frontend_dir / "landingpage.html")
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -30,7 +40,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+ 
 #   Single Review
 
 @app.post("/api/analyze", response_model=SentimentResponse)
@@ -44,7 +54,7 @@ async def analyze_single(request: dict):
     return await analyze_sentiment(request["text"])
 
 
-# Batch Analysis  
+# Batch Analysis  (currently used)
 
 @app.post("/api/batch-analyze", response_model=BatchAnalyzeResponse)
 async def analyze_batch(request: BatchAnalyzeRequest):
@@ -117,3 +127,9 @@ async def analyze_batch(request: BatchAnalyzeRequest):
         results=results,
         insights=insights
     )
+
+app.mount(
+    "/",
+    StaticFiles(directory=str(frontend_dir)),
+    name="static"
+)
