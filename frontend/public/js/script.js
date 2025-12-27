@@ -73,7 +73,7 @@ analyzeBtn.addEventListener('click', async () => {
         }
 
         //API Call
-        const res = await fetch("http://192.168.1.120:8000/api/batch-analyze", {
+        const res = await fetch("http://https://insyte-qkjr.onrender.com/api/batch-analyze", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ reviews })

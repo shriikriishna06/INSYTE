@@ -1,7 +1,6 @@
 import os
 from typing import List
 from dotenv import load_dotenv
-import google.generativeai as genai
 from google import genai
 import json 
 import re
