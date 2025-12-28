@@ -126,6 +126,7 @@ This project is currently:
 - Visual Insights
 - Insight export (PDF)
 - Dockerization (devops)
+- Integrating Redis and Cloudflare for rate limiting and security concerns(DDOS)
 
 # 👤NOTE BY THE AUTHOR
 Did used AI tools, vibe coding platforms and all i wanna say is...<br>
