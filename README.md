@@ -101,7 +101,8 @@ Make sure to set the right path for the assets and js to get served. (using pyth
 ```
 insyte/frontend/landingpage.html
 ```
-6. Using py to serve the frontend
+6. Using py to serve the frontend<br>
+Following steps are already performed but are commented in  the main.py file.(to use just uncomment...)<br>
 - Place this API endpoint in the beginning of the main.py file.
 ```python
 frontend_dir = Path(__file__).resolve().parents[1] / "frontend" / "public"
