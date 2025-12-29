@@ -97,9 +97,28 @@ GEMINI_API_KEY=your_key_here
 python -m uvicorn backend.main:app --reload
 ```
 5. Go live on
+Make sure to set the right path for the assets and js to get served. (using python(fastAPI) to serve the front end is recommended)
 ```
 insyte/frontend/landingpage.html
 ```
+6. Using py to serve the frontend
+- Place this snippet in the begining of the main.py file.
+```
+frontend_dir = Path(__file__).resolve().parents[1] / "frontend" / "public"
+
+@app.get("/")
+def root():
+    return FileResponse(frontend_dir / "landingpage.html")
+```
+- Place this at the end of main.py file.
+```
+app.mount(
+    "/",
+    StaticFiles(directory=str(frontend_dir)),
+    name="static"
+)
+```
+
 # 🛡️RELIABILITY
 - Strict JSON validation
 - AI hallucination protection
