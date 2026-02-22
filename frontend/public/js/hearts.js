@@ -10,7 +10,7 @@ function popHearts(event) {
     // Loop to create 7 hearts
     for (let i = 0; i < 7; i++) {
         const heart = document.createElement('span');
-        heart.innerHTML = '❤️';
+        heart.innerHTML = '⚡';
         heart.classList.add('heart-animation');
 
         const randomX = -(Math.random() * 1000);
