@@ -20,7 +20,7 @@ function pop(event) {
         x.style.left = `${event.offsetX + randomX + event.target.offsetLeft}px`;
         x.style.top = `${event.offsetY + randomY}px`;
 
-        container.appendChild(heart);
+        container.appendChild(x);
 
         setTimeout(() => {
             x.remove();
