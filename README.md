@@ -149,8 +149,7 @@ This project is currently:
 - Integrating Redis and Cloudflare for rate limiting and security concerns(DDOS)
 
 # 👤NOTE BY THE AUTHOR
-Did used AI tools, vibe coding platforms and all i wanna say is...<br>
-Built with ♥️ and obsession....
+Built with ⚡ and obsession....
 
 
 
