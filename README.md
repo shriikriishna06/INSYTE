@@ -99,7 +99,7 @@ python -m uvicorn backend.main:app --reload
 5. Go live on<br>
 Make sure to set the right path for the assets and js to get served. (using python(fastAPI) to serve the front end is recommended)
 ```
-insyte/frontend/landingpage.html
+insyte/frontend/index.html
 ```
 6. Using py to serve the frontend<br>
 Following steps are already performed but are commented in  the main.py file.(to use just uncomment...)<br>
@@ -109,7 +109,7 @@ frontend_dir = Path(__file__).resolve().parents[1] / "frontend" / "public"
 
 @app.get("/")
 def root():
-    return FileResponse(frontend_dir / "landingpage.html")
+    return FileResponse(frontend_dir / "index.html")
 ```
 - Place this at the end of main.py file.
 ```python
